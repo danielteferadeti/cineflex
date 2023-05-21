@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using CineFlex.Application.Features.Movies.DTOs;
+using CineFlex.Application.Features.Cinema.DTO;
+using CineFlex.Application.Features.Cinema.Dtos;
 using CineFlex.Domain;
 using System;
 using System.Collections.Generic;
@@ -21,6 +23,9 @@ namespace CineFlex.Application.Profiles
             CreateMap<Movie, UpdateMovieDto>().ReverseMap();
 
             #endregion Movie
+            CreateMap<CinemaEntity, CreateCinemaDto>().ReverseMap();
+            CreateMap<CinemaEntity, CinemaDto>().ReverseMap();
+            CreateMap<CinemaEntity, UpdateCinemaDto>().ReverseMap();
         }
     }
 }

@@ -40,6 +40,7 @@ namespace CineFlex.Persistence
 
             return base.SaveChangesAsync(cancellationToken);
         }
+        public DbSet<CinemaEntity> Cinemas { get; set; }
 
         public DbSet<Movie> Movies { get; set; }
 
