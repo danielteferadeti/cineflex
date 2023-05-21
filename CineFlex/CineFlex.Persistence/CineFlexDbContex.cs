@@ -1,5 +1,4 @@
-﻿using BlogApp.Domain.Common;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
+﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,6 +6,8 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using CineFlex.Domain.Common;
+using CineFlex.Domain;
 
 namespace CineFlex.Persistence
 {
@@ -39,6 +40,8 @@ namespace CineFlex.Persistence
 
             return base.SaveChangesAsync(cancellationToken);
         }
+
+        public DbSet<Movie> Movies { get; set; }
 
     }
 }

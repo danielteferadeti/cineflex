@@ -1,13 +1,13 @@
-﻿using CineFlex.Domain.Common;
+﻿using CineFlex.Application.Features.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CineFlex.Domain
+namespace CineFlex.Application.Features.Movies.DTOs
 {
-    public class Movie: BaseDomainEntity
+    public class UpdateMovieDto : BaseDto, IMovieDto
     {
         public string Title { get; set; }
         public string Genre { get; set; }

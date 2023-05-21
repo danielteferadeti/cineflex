@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace BlogApp.Application.Exceptions;
+namespace CineFlex.Application.Exceptions;
 
 public class IdentityException : ApplicationException
 {

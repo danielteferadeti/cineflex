@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Application.Features.Common
+namespace CineFlex.Application.Features.Common
 {
     public abstract class BaseDto
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BlogApp.Application.Constants
+namespace CineFlex.Application.Constants
 {
     public static class CustomClaimTypes
     {

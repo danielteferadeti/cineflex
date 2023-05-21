@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Domain.Common
+namespace CineFlex.Domain.Common
 {
     public abstract class BaseDomainEntity
     {

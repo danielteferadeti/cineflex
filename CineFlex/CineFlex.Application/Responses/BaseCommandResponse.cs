@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Application.Responses
+namespace CineFlex.Application.Responses
 {
     public class BaseCommandResponse<T>
     {

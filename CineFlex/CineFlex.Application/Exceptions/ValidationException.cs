@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FluentValidation.Results;
 
-namespace BlogApp.Application.Exceptions
+namespace CineFlex.Application.Exceptions
 {
     public class ValidationException : ApplicationException
     {
