@@ -16,7 +16,6 @@ namespace CineFlex.Persistence.Repositories
         {
             _dbContext = dbContext;
         }
-
         public async Task<T> Add(T entity)
         {
             await _dbContext.AddAsync(entity);
