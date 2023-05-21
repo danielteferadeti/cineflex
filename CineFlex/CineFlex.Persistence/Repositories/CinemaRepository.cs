@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CineFlex.Persistence.Repositories
 {
-    public class CinemaRepository : GenericRepository<Cinema>
+    public class CinemaRepository : GenericRepository<CinemaEntity>
     {
         public CinemaRepository(CineFlexDbContex dbContext) : base(dbContext)
         {

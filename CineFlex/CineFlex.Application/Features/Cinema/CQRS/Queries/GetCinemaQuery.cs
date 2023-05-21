@@ -1,5 +1,5 @@
-﻿using BlogApp.Application.Responses;
-using CineFlex.Application.Features.Cinema.Dtos;
+﻿using CineFlex.Application.Features.Cinema.Dtos;
+using CineFlex.Application.Responses;
 using MediatR;
 using System;
 using System.Collections.Generic;

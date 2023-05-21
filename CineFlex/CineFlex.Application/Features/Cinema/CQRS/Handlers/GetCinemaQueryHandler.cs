@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
-using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Exceptions;
-using BlogApp.Application.Responses;
 using CineFlex.Application.Contracts.Persistence;
 using CineFlex.Application.Features.Cinema.CQRS.Queries;
 using CineFlex.Application.Features.Cinema.Dtos;
+using CineFlex.Application.Responses;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -29,6 +28,7 @@ namespace CineFlex.Application.Features.Cinema.CQRS.Handlers
         public async Task<BaseCommandResponse<CinemaDto>> Handle(GetCinemaQuery request, CancellationToken cancellationToken)
         {
             bool exists = await _unitOfWork.CinemaRepository.Exists(request.Id);
+            Console.WriteLine(exists);
             if (exists == false)
             {
                 var error = new NotFoundException(nameof(Cinema), request.Id);

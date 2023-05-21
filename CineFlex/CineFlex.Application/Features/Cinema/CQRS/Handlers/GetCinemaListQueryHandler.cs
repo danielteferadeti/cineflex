@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using BlogApp.Application.Contracts.Persistence;
-using BlogApp.Application.Responses;
+using CineFlex.Application.Contracts.Persistence;
 using CineFlex.Application.Features.Cinema.CQRS.Queries;
 using CineFlex.Application.Features.Cinema.Dtos;
+using CineFlex.Application.Responses;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -30,7 +30,6 @@ namespace CineFlex.Application.Features.Cinema.CQRS.Handlers
 
             if (cinema == null || cinema.Count == 0)
             {
-                // Return an error response if there are no cinema found
                 return new BaseCommandResponse<List<CinemaDto>>
                 {
                     Success = false,
@@ -39,7 +38,6 @@ namespace CineFlex.Application.Features.Cinema.CQRS.Handlers
             }
             else
             {
-                // Map the cinema list to a response DTO and return a success response
                 return new BaseCommandResponse<List<CinemaDto>>
                 {
                     Success = true,
