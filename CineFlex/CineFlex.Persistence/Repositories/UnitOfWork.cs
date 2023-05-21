@@ -33,6 +33,8 @@ namespace CineFlex.Persistence.Repositories
         {
             get
             {
+                if (_cinemaRepository == null)
+                    _cinemaRepository = new CinemaRepository(_context);
                 return _cinemaRepository;
             }
         }

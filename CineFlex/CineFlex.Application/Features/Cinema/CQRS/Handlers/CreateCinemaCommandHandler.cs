@@ -11,6 +11,8 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
+
 
 
 namespace CineFlex.Application.Features.Cinema.CQRS.Handlers
@@ -38,25 +40,27 @@ namespace CineFlex.Application.Features.Cinema.CQRS.Handlers
                 response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
 
             }
-            var cinema = _mapper.Map<CinemaEntity>(request.CinemaDto);
-
-            cinema = await _unitOfWork.CinemaRepository.Add(cinema);
-
-            if (await _unitOfWork.Save() > 0)
-            {
-                response.Success = true;
-                response.Message = "Creation Successfull";
-                response.Value = cinema.Id;
-            }
             else
             {
-                response.Success = false;
-                response.Message = "Creation Failed";
-                Console.WriteLine("Failed 0");
+                var cinema = _mapper.Map<CinemaEntity>(request.CinemaDto);
 
+                cinema = await _unitOfWork.CinemaRepository.Add(cinema);
+
+                if (await _unitOfWork.Save() > 0)
+                {
+                    response.Success = true;
+                    response.Message = "Creation Successfull";
+                    response.Value = cinema.Id;
+                }
+                else
+                {
+                    response.Success = false;
+                    response.Message = "Creation Failed";
+
+                }
+                
             }
             return response;
-
         }
 
     }
