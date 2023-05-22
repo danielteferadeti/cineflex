@@ -14,7 +14,7 @@ namespace CineFlex.Persistence.Repositories
         private readonly CineFlexDbContex _context;
         private IMovieRepository _MovieRepository;
 
-        private readonly ICinemaRepository _cinemaRepository;
+        private ICinemaRepository _cinemaRepository;
         public UnitOfWork(CineFlexDbContex context)
         {
             _context = context;

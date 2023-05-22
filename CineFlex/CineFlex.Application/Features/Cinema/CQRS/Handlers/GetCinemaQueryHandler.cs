@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BlogApp.Application.Exceptions;
+using CineFlex.Application.Exceptions;
 using CineFlex.Application.Contracts.Persistence;
 using CineFlex.Application.Features.Cinema.CQRS.Queries;
 using CineFlex.Application.Features.Cinema.Dtos;
