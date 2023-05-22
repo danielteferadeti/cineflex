@@ -23,12 +23,12 @@ namespace CineFlex.Application.Features.Cinema.CQRS.Handlers
         public GetCinemaQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _mapper = mapper;
+            _unitOfWork = unitOfWork;
 
         }
         public async Task<BaseCommandResponse<CinemaDto>> Handle(GetCinemaQuery request, CancellationToken cancellationToken)
         {
             bool exists = await _unitOfWork.CinemaRepository.Exists(request.Id);
-            Console.WriteLine(exists);
             if (exists == false)
             {
                 var error = new NotFoundException(nameof(Cinema), request.Id);
