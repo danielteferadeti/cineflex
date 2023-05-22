@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CineFlex.API.Controllers
 {
-    public class CinemaController:ControllerBase
+    public class CinemaController: BaseApiController
     {
         private readonly IMediator _mediator;
 
@@ -19,22 +19,19 @@ namespace CineFlex.API.Controllers
         [HttpGet("GetAll")]
         public async Task<ActionResult<List<CinemaDto>>> Get()
         {
-            var Cinemas = await _mediator.Send(new GetCinemaListQuery());
-            return Ok(Cinemas);
+            return HandleResult(await _mediator.Send(new GetCinemaListQuery()));
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<CinemaDto>> Get(int id)
         {
-            var Cinema = await _mediator.Send(new GetCinemaQuery { Id = id });
-            return Ok(Cinema);
+             return HandleResult(await _mediator.Send(new GetCinemaQuery { Id = id }));
         }
         [HttpPost("CreateCinema")]
         public async Task<ActionResult> Post([FromBody] CreateCinemaDto createCinemaDto)
         {
             var command = new CreateCinemaCommand { CinemaDto = createCinemaDto };
-            var repsonse = await _mediator.Send(command);
-            return Ok(repsonse);
+            return HandleResult(await _mediator.Send(command));
         }
         [HttpPut("UpdateCinema")]
         public async Task<ActionResult> Put([FromBody] UpdateCinemaDto updateCinemaDto)
