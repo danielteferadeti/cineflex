@@ -1,5 +1,6 @@
 ﻿using CineFlex.Application.Contracts.Persistence;
 using CineFlex.Persistence;
+using CineFlex.Persistence.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace CineFlex.Persistence.Repositories
         private readonly CineFlexDbContex _context;
         private IMovieRepository _MovieRepository;
 
+        private ICinemaRepository _cinemaRepository;
         public UnitOfWork(CineFlexDbContex context)
         {
             _context = context;
@@ -27,6 +29,17 @@ namespace CineFlex.Persistence.Repositories
                 return _MovieRepository;
             }
         }
+        public ICinemaRepository CinemaRepository
+        {
+            get
+            {
+                if (_cinemaRepository == null)
+                    _cinemaRepository = new CinemaRepository(_context);
+                return _cinemaRepository;
+            }
+        }
+
+
         public void Dispose()
         {
             _context.Dispose();
